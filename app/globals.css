@@ -193,6 +193,7 @@ a { color: var(--accent); text-underline-offset: 0.2em; }
   background: var(--over); border-radius: 2px;
 }
 .gap::before { content: ""; position: absolute; left: 0; top: -4px; height: 11px; width: 2px; background: var(--over); }
+.gap.open::before { display: none; }
 .seg.cont::after {
   content: ""; position: absolute; right: -8px; top: 50%; translate: 0 -50%;
   width: 7px; height: 12px; background: var(--accent); clip-path: polygon(0 0, 100% 50%, 0 100%);

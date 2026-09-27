@@ -535,7 +535,9 @@ function MemberRow({
     );
   }
 
-  const gapStart = frac(win, cycleStart(plan, lastAll + 1));
+  // Unpaid stretch up to today, clipped to the timeline; it may have begun before the first visible month.
+  const gapFrom = frac(win, cycleStart(plan, lastAll + 1));
+  const gapStart = Math.max(gapFrom, 0);
   const showGap = r.st.kind === "overdue" && gapStart < todayFrac;
 
   let head: React.ReactNode;
@@ -580,7 +582,7 @@ function MemberRow({
           {segs}
           {showGap && (
             <span
-              className="gap"
+              className={gapFrom < 0 ? "gap open" : "gap"}
               style={{ left: `calc(${gapStart * 100}% + 2px)`, width: `calc(${(todayFrac - gapStart) * 100}% - 2px)` }}
             />
           )}
