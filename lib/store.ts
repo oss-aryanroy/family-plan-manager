@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
+import { connection } from "next/server";
 import { monthOf, type Db } from "./coverage";
 
 const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
@@ -20,6 +21,7 @@ async function redis(cmd: string[]) {
 }
 
 export async function load(today: string): Promise<Db> {
+  await connection(); // live data: never read at build time, so every page that loads it renders per request
   let raw: string | null = null;
   if (url && token) raw = await redis(["GET", KEY]);
   else raw = await readFile(/*turbopackIgnore: true*/ FILE, "utf8").catch(() => null);
