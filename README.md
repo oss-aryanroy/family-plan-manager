@@ -11,6 +11,10 @@
     <a href="#contributing">Contributing</a> ·
     <a href="LICENSE">MIT License</a>
   </p>
+
+  <p>
+    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foss-aryanroy%2Ffamily-plan-manager&project-name=family-plan-manager&repository-name=family-plan-manager&env=OWNER_USERNAME%2COWNER_PASSWORD%2CSESSION_SECRET%2COWNER_TZ&envDefaults=%7B%22OWNER_USERNAME%22%3A%22owner%22%2C%22OWNER_TZ%22%3A%22UTC%22%7D&envDescription=Your%20owner%20sign-in%2C%20a%20random%20session%20secret%20%28openssl%20rand%20-hex%2032%29%20and%20your%20time%20zone%2C%20e.g.%20Asia%2FKolkata.&envLink=https%3A%2F%2Fgithub.com%2Foss-aryanroy%2Ffamily-plan-manager%23settings&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22upstash%22%2C%22productSlug%22%3A%22upstash-kv%22%2C%22protocol%22%3A%22storage%22%7D%5D"><img src="https://vercel.com/button" alt="Deploy with Vercel" /></a>
+  </p>
 </div>
 
 ---
@@ -64,10 +68,18 @@ Open [http://localhost:3000](http://localhost:3000). Locally, your data is saved
 
 The app is built for [Vercel](https://vercel.com) and fits on the free Hobby plan.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foss-aryanroy%2Ffamily-plan-manager&project-name=family-plan-manager&repository-name=family-plan-manager&env=OWNER_USERNAME%2COWNER_PASSWORD%2CSESSION_SECRET%2COWNER_TZ&envDefaults=%7B%22OWNER_USERNAME%22%3A%22owner%22%2C%22OWNER_TZ%22%3A%22UTC%22%7D&envDescription=Your%20owner%20sign-in%2C%20a%20random%20session%20secret%20%28openssl%20rand%20-hex%2032%29%20and%20your%20time%20zone%2C%20e.g.%20Asia%2FKolkata.&envLink=https%3A%2F%2Fgithub.com%2Foss-aryanroy%2Ffamily-plan-manager%23settings&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22upstash%22%2C%22productSlug%22%3A%22upstash-kv%22%2C%22protocol%22%3A%22storage%22%7D%5D)
+
+The button copies this repository to your GitHub account, creates an [Upstash Redis](https://vercel.com/marketplace/upstash/upstash-kv) database for your data, and asks for your owner sign-in, a session secret and your time zone.
+
+Prefer to set it up by hand?
+
 1. Import the repository into Vercel.
-2. Add [Upstash Redis](https://vercel.com/marketplace/upstash) from the Vercel Marketplace. It sets the storage variables for you.
-3. Add `OWNER_PASSWORD`, `SESSION_SECRET` and `OWNER_TZ` under **Settings → Environment Variables**.
+2. Add [Upstash Redis](https://vercel.com/marketplace/upstash/upstash-kv) from the Vercel Marketplace. It sets the storage variables for you.
+3. Add `OWNER_USERNAME`, `OWNER_PASSWORD`, `SESSION_SECRET` and `OWNER_TZ` under **Settings → Environment Variables**.
 4. Deploy.
+
+To show the **View on GitHub** button on your About page, also set `NEXT_PUBLIC_REPO_URL` to your copy of the repository.
 
 ## Built with
 
