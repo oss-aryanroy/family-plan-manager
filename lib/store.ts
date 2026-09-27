@@ -5,6 +5,7 @@ import { monthOf, type Db } from "./coverage";
 const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
 const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
 const KEY = "fpm:db";
+// Local-dev storage only (Vercel uses Redis), so the bundler is told not to trace these paths.
 const FILE = process.env.DATA_FILE || ".data/db.json"; // DATA_FILE lets tests use a throwaway file
 
 async function redis(cmd: string[]) {
@@ -21,7 +22,7 @@ async function redis(cmd: string[]) {
 export async function load(today: string): Promise<Db> {
   let raw: string | null = null;
   if (url && token) raw = await redis(["GET", KEY]);
-  else raw = await readFile(FILE, "utf8").catch(() => null);
+  else raw = await readFile(/*turbopackIgnore: true*/ FILE, "utf8").catch(() => null);
   if (raw) {
     const db: Db = JSON.parse(raw);
     // Memberships saved before date cycles stored `startMonth`; for monthly plans on the 1st it is the same cycle index.
@@ -39,8 +40,8 @@ export async function save(db: Db) {
   if (url && token) await redis(["SET", KEY, raw]);
   else {
     if (process.env.VERCEL) throw new Error("No storage configured: add Upstash Redis to this project.");
-    await mkdir(dirname(FILE), { recursive: true });
-    await writeFile(FILE, raw);
+    await mkdir(/*turbopackIgnore: true*/ dirname(FILE), { recursive: true });
+    await writeFile(/*turbopackIgnore: true*/ FILE, raw);
   }
 }
 
