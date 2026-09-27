@@ -1,0 +1,14 @@
+node_modules
+.next
+.data
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.impeccable/review
+
+# Local AI and design notes
+CLAUDE.md
+AGENTS.md
+DESIGN.md
+PRODUCT.md
+.impeccable/
