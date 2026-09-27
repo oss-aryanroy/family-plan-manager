@@ -90,7 +90,8 @@ export default function About() {
           <section aria-labelledby="code">
             <h2 id="code">The code</h2>
             <p>
-              The source code is on GitHub. Run your own copy for your plans: it fits on{" "}
+              Family Plan Manager is free and open source under the MIT License, and the code is on GitHub.
+              Run your own copy for your plans: it fits on{" "}
               <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="inline-brand">
                 <BrandIcon name="vercel" />Vercel
               </a>
@@ -121,7 +122,7 @@ export default function About() {
       </article>
 
       <footer className="about-foot">
-        <span>Version {pkg.version} · Updated {updated}</span>
+        <span>Version {pkg.version} · {pkg.license} License · Updated {updated}</span>
         <Link href="/login">Back to sign in</Link>
       </footer>
     </main>

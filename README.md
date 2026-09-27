@@ -8,7 +8,8 @@
   <p>
     <a href="#getting-started">Getting started</a> ·
     <a href="#deploying">Deploying</a> ·
-    <a href="#contributing">Contributing</a>
+    <a href="#contributing">Contributing</a> ·
+    <a href="LICENSE">MIT License</a>
   </p>
 </div>
 
@@ -91,3 +92,7 @@ A few things worth knowing before you dive in:
 - The billing and coverage math lives in [`lib/coverage.ts`](lib/coverage.ts). If you touch it, add a case to [`lib/coverage.test.ts`](lib/coverage.test.ts).
 - New screens should look and behave like the existing ones: the same colours, type and components.
 - Plain CSS, no UI library. Reach for what's already in [`app/globals.css`](app/globals.css) before adding anything new.
+
+## License
+
+[MIT](LICENSE) © 2026 oss-aryanroy
